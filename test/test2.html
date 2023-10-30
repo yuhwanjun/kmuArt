@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .moving-element {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+            position: absolute;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .moving-element:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        class Mover {
+            constructor(num) {
+                this.num = num;
+                this.element = this.createMoverElement();
+                this.isHovered = false;
+                this.addEventListeners();
+                this.randomPosition();
+                setInterval(() => this.randomPosition(), 6000);
+            }
+
+            createMoverElement() {
+                const element = document.createElement("div");
+                element.className = "moving-element";
+                element.textContent = this.num;
+                element.style.transition = `top 2s ease-in-out ${this.num * 0.01}s, left 2s ease-in-out ${this.num * 0.01}s`; // Adjusted transition-delay
+                document.body.appendChild(element);
+                return element;
+            }
+
+            addEventListeners() {
+                this.element.addEventListener("mouseenter", () => {
+                    this.isHovered = true;
+                });
+
+                this.element.addEventListener("mouseleave", () => {
+                    this.isHovered = false;
+                });
+            }
+
+            randomPosition() {
+                if (!this.isHovered) {
+                    const maxX = window.innerWidth - this.element.clientWidth;
+                    const maxY = window.innerHeight - this.element.clientHeight;
+                    const minX = 100;
+                    const minY = 100;
+                    const maxXWithinBounds = maxX - minX * 2;
+                    const maxYWithinBounds = maxY - minY * 2;
+                    const randomX = Math.floor(Math.random() * maxXWithinBounds) + minX;
+                    const randomY = Math.floor(Math.random() * maxYWithinBounds) + minY;
+                    this.element.style.left = randomX + "px";
+                    this.element.style.top = randomY + "px";
+                }
+            }
+        }
+
+        for (let i = 0; i < 41; i++) {
+            new Mover(i);
+        }
+    </script>
+</body>
+</html>
