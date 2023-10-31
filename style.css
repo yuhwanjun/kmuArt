@@ -1,0 +1,180 @@
+html,
+body {
+  font-family: pretendard, sans-serif;
+  /* 500, 700 */
+  /* font-family: futura-pt,  sans-serif; */
+  /* 500, 600, 700 */
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.6em;
+  word-break: keep-all;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  /* cursor: none; */
+  background-color: white;
+}
+h1 {
+  /* font-family: futura-pt, sans-serif; */
+  font-weight: 600;
+}
+a {
+  /* font-family: futura-pt, sans-serif; */
+  font-weight: 600;
+  /* cursor: none; */
+}
+
+
+/* header */
+header {
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 3rem auto;
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 2rem;
+  margin-left: 4rem;
+}
+header h1 b {
+  display: none;
+}
+header h1:hover b {
+  display: inline;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  margin-right: 4rem;
+}
+header ul li {
+  margin: 0 1em;
+  
+    border-radius: 20px;
+    padding: 0.1em 0.5em;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* bg */
+#bgPage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+}
+
+#bgPage .axis-lump {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 280px;
+  top: 280px;
+}
+#bgPage .axis-lump.text {
+  width: 285px;
+  transform: translate(0px, -150px);
+}
+#bgPage .axis-lump.img {
+  width: 30vw;
+}
+
+#bgPage .axis-incarnate {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  right: 0px;
+  top: 45vh;
+}
+#bgPage .axis-incarnate.text {
+  width: 424px;
+  transform: translate(-100px, 0px);
+}
+#bgPage .axis-incarnate.img {
+  width: 30vw;
+}
+
+#bgPage .axis-plate {
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 45%;
+  bottom: 60px;
+}
+#bgPage .axis-plate.text {
+  width: 245px;
+}
+#bgPage .axis-plate.img {
+  width: 30vw;
+}
+
+main {
+  position: absolute;
+  z-index: 30;
+}
+main .sticker-wrap {
+  position: absolute;
+  /* cursor: pointer; */
+}
+main .sticker-wrap .sticker {
+  width: 28px;
+  height: auto;
+  z-index: 102;
+  position: relative;
+  filter: drop-shadow(0px 2px 2px #1d1d1f63);
+  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); */
+}
+main .sticker-wrap .hover-img {
+  display: none;
+  position: absolute;
+  border-radius: 8px;
+  z-index: 101;
+  width: 200px;
+  height: auto;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+main .sticker-wrap:hover .sticker {
+  width: 28px;
+}
+main .sticker-wrap:hover .hover-img {
+  display: block;
+}
+
+.cursor {
+  pointer-events: none;
+  display: none;
+}
+
+.cursor__ball {
+  mix-blend-mode:difference;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+circle {
+  fill: #d8d8d8;
+}
+
+#bg {
+  fill:#fff;
+}
+#num{
+  fill:#090809;
+}
+
+svg:hover #bg{
+  fill:#090809;
+}
+svg:hover #num{
+  fill:#fff;
+}
+.cls-3{fill:#d8d7d8;}
+.cls-3{fill:#726f70;}
